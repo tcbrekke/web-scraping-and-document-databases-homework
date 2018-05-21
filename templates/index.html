@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>3rd Rock From the Sun</title>
+  </head>
+
+  <body>
+  	<div class='container'>
+  		<div class='row py-3'>
+  			<div class='col-sm-12'>
+	  			<div class='jumbotron'>
+	  				<h1 style='text-align: center;'>WELCOME TO <del>EARTH</del> MARS</h1>
+	  				<p class='text-center pt-3'><button type="button" class="btn btn-secondary"><a clas='text-light' href='/scrape'>Scrape That Sweet, Sweet Mars Info</a></button></p>
+	  			</div>
+	  		</div>
+  		</div>
+
+  		<div class='row'>
+  			<div class='col-med-8'>
+  				<h2>Featured Mars Image? Here's One:</h2>
+  				<img class='img-responsive' src='{{mars_data.featured_image_url}}' alt='Featured Mars Image'>
+  			</div>
+  			<div class='col-sm-4'>
+  				<h2>Weather on Mars:</h2>
+  				<p>{{mars_data.mars_weather}}</p>
+  			</div>
+  			<div class='col-sm-4'>
+  				<h2>Mars Facts</h2>
+  				<div class='table-responsive'>
+  					{{mars_data.facts}}
+  				</div>
+  			</div>
+  		</div>
+  		<div class='row'>
+  			<div class='col-med-6'>
+  				<img class='img-responsive' src='{{mars_data.hemisphere_images.jpeg_url[0]}}'>
+  				<h3>{{mars_data.hemisphere_images.title[0]}}</h3>
+  			</div>
+  			<div class='col-med-6'>
+  				<img class='img-responsive' src='{{mars_data.hemisphere_images.jpeg_url[1]}}'>
+  				<h3>{{mars_data.hemisphere_images.title[1]}}</h3>
+  			</div>
+  		</div>
+  		<div class='row'>
+  			<div class='col-med-6'>
+  				<img class='img-responsive' src='{{mars_data.hemisphere_images.jpeg_url[2]}}'>
+  				<h3>{{mars_data.hemisphere_images.title[2]}}</h3>
+  			</div>
+  			<div class='col-med-6'>
+  				<img class='img-responsive' src='{{mars_data.hemisphere_images.jpeg_url[3]}}'>
+  				<h3>{{mars_data.hemisphere_images.title[3]}}</h3>
+  			</div>
+  		</div>
+
+  	</div>
+  </body>
