@@ -18,7 +18,7 @@ def scrape():
     browser.visit(nasa_image_url)
 
     html = browser.html
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html, 'lxml')
 
     browser.click_link_by_id('full_image')
     time.sleep(1)
@@ -39,15 +39,18 @@ def scrape():
     rollup_dict['mars_weather'] = mars_weather
 
     #Scrape facts table
+    
+    html = browser.html
+    soup = BeautifulSoup(html, 'html.parser')
 
     mars_facts_url = 'https://space-facts.com/mars/#facts'
     browser.visit(mars_facts_url)
 
     time.sleep(2)
-    facts_table_scrape = browser.find_by_css('table.tablepress-id-mars')
-    print(facts_table_scrape)
+    facts_table_scrape = soup.find('table')
+    print(str(facts_table_scrape))
 
-    facts_df = pd.read_html(facts_table_scrape)
+    facts_df = pd.read_html(str(facts_table_scrape))
     facts_conversion_table = facts_df.to_html()
 
     rollup_dict['facts'] = facts_conversion_table
