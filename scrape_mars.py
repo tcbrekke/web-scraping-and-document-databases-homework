@@ -44,9 +44,10 @@ def scrape():
     browser.visit(mars_facts_url)
 
     time.sleep(2)
-    facts_table_scrape = soup.find('table', class_='tablepress-id-mars')
+    facts_table_scrape = browser.find_by_css('table.tablepress-id-mars')
+    print(facts_table_scrape)
 
-    facts_df = pd.read_html(str(facts_table_scrape))
+    facts_df = pd.read_html(facts_table_scrape)
     facts_conversion_table = facts_df.to_html()
 
     rollup_dict['facts'] = facts_conversion_table
