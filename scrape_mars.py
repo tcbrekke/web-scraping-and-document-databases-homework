@@ -39,19 +39,19 @@ def scrape():
     rollup_dict['mars_weather'] = mars_weather
 
     #Scrape facts table
-    
-    html = browser.html
-    soup = BeautifulSoup(html, 'html.parser')
 
     mars_facts_url = 'https://space-facts.com/mars/#facts'
     browser.visit(mars_facts_url)
 
+    html = browser.html
+    soup = BeautifulSoup(html, 'html.parser')
+
     time.sleep(2)
-    facts_table_scrape = soup.find('table')
+    facts_table_scrape = soup.find('table', class_='tablepress-id-mars')
     print(str(facts_table_scrape))
 
     facts_df = pd.read_html(str(facts_table_scrape))
-    facts_conversion_table = facts_df.to_html()
+    facts_conversion_table = facts_df[0].to_html()
 
     rollup_dict['facts'] = facts_conversion_table
 
@@ -89,7 +89,7 @@ def scrape():
         hemi_dict['tiff_url'] = tiff_url
         hemi_dict['img_url'] = jpeg_url
         hemi_list.append(hemi_dict)
-    
+
     rollup_dict['hemisphere_images'] = hemi_list
 
     browser.quit()

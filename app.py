@@ -16,7 +16,7 @@ def index():
 def scrape():
 	mars_data = mongo.db.mars_data
 	mars_rollup = scrape_mars.scrape()
-	mars_data.insert(rollup_dict)
+	mars_data.insert(mars_rollup)
 
 	return 'Scrape complete'
 
