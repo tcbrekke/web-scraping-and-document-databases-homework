@@ -16,9 +16,13 @@ def index():
 def scrape():
 	mars_data = mongo.db.mars_data
 	mars_rollup = scrape_mars.scrape()
-	mars_data.insert(mars_rollup)
+	mars_data.update(
+		{},
+        mars_rollup,
+        upsert=True
+        )
 
-	return 'Scrape complete'
+	return render_template('index.html', mars_data=mars_data)
 
 if __name__ == '__main__':
 	app.run(debug=True)

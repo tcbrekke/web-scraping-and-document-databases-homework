@@ -51,7 +51,7 @@ def scrape():
     print(str(facts_table_scrape))
 
     facts_df = pd.read_html(str(facts_table_scrape))
-    facts_conversion_table = facts_df[0].to_html()
+    facts_conversion_table = facts_df[0].to_html(classes="table", header=False, escape=False)
 
     rollup_dict['facts'] = facts_conversion_table
 

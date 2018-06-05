@@ -25,39 +25,40 @@
   		<div class='row'>
   			<div class='col-med-8'>
   				<h2>Featured Mars Image? Here's One:</h2>
-          <div class='img-responsive'>
-  				<img src='{{mars_data.featured_image_url}}' alt='Featured Mars Image'>
+          <div>
+  				<img class="img-fluid" src='{{mars_data.featured_image_url}}' alt='Featured Mars Image'>
           </div>
   			</div>
-  			<div class='col-sm-4'>
+  			<div class='col-med-4'>
   				<h2>Weather on Mars:</h2>
   				<p>{{mars_data.mars_weather}}</p>
-  			</div>
-  			<div class='col-sm-4'>
   				<h2>Mars Facts</h2>
-  				<div class='table-responsive'>
-  					{{mars_data.facts}}
+  				<div class='table-responsive table-borderless'>
+            <h4>Facts</h4>
+            {% autoescape false %}
+  				  {{mars_data.facts}}
+            {% endautoescape %}
   				</div>
   			</div>
   		</div>
   		<div class='row'>
   			<div class='col-md-6'>
-  				<img class='img-responsive' src='{{mars_data.hemisphere_images[0].img_url[0]}}'>
-  				<h3>{{mars_data.hemisphere_images[0].title[0]}}</h3>
+  				<img class='img-fluid' src='{{mars_data.hemisphere_images[0].img_url}}'>
+  				<h3>{{mars_data.hemisphere_images[0].title}}</h3>
   			</div>
   			<div class='col-md-6'>
-  				<img class='img-responsive' src='{{mars_data.hemisphere_images[0].img_url[1]}}'>
-  				<h3>{{mars_data.hemisphere_images[0].title[1]}}</h3>
+  				<img class='img-fluid' src='{{mars_data.hemisphere_images[1].img_url}}'>
+  				<h3>{{mars_data.hemisphere_images[1].title}}</h3>
   			</div>
   		</div>
   		<div class='row'>
   			<div class='col-md-6'>
-  				<img class='img-responsive' src='{{mars_data.hemisphere_images[0].img_url[2]}}'>
-  				<h3>{{mars_data.hemisphere_images[0].title[2]}}</h3>
+  				<img class='img-fluid' src='{{mars_data.hemisphere_images[2].img_url}}'>
+  				<h3>{{mars_data.hemisphere_images[2].title}}</h3>
   			</div>
   			<div class='col-md-6'>
-  				<img class='img-responsive' src='{{mars_data.hemisphere_images[0].img_url[3]}}'>
-  				<h3>{{mars_data.hemisphere_images[0].title[3]}}</h3>
+  				<img class='img-fluid' src='{{mars_data.hemisphere_images[3].img_url}}'>
+  				<h3>{{mars_data.hemisphere_images[3].title}}</h3>
   			</div>
   		</div>
 
